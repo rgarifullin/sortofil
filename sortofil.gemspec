@@ -1,4 +1,4 @@
-$:.push File.expand_path('../lib', __FILE__)
+$LOAD_PATH.push File.expand_path('../lib', __FILE__)
 
 # Maintain your gem's version:
 require 'sortofil/version'
@@ -9,12 +9,12 @@ Gem::Specification.new do |s|
   s.version     = Sortofil::VERSION
   s.authors     = ['Rinat Garifullin']
   s.email       = ['ringarifullin@gmail.com']
-  s.homepage    = 'TODO'
-  s.summary     = 'TODO: Summary of Sortofil.'
-  s.description = 'TODO: Description of Sortofil.'
+  s.homepage    = ''
+  s.summary     = 'Sorting and filtering tool'
+  s.description = 'Set of sort and filter helpers'
   s.license     = 'MIT'
 
-  s.files = Dir["{app,config,db,lib}/**/*", 'MIT-LICENSE', 'Rakefile',
+  s.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile',
                 'README.md']
 
   s.add_dependency 'rails', '~> 5.1.1'
