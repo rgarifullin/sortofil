@@ -29,15 +29,14 @@
                                            sort_by: column) %>
 <% end %>
 
-<% url = defined?(url) ? url : model %>
-<% i18_scope = defined?(i18_scope) ? i18_scope : model %>
-
+<% i18_scope ||= model %>
 <% header = t("#{i18_scope}.#{scope || model}.#{column}", default: '') %>
 <% if header.empty? %>
   <% header = Object.const_get(model.singularize.capitalize)
                     .human_attribute_name(column) %>
 <% end %>
 
+<% url ||= model %>
 <%= link_to url_for([url, params: sort_params.to_h]) do %>
   <%= header %>
   <% if params.dig(scope, :sort_by).present? %>

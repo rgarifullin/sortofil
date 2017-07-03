@@ -3,16 +3,22 @@
 <table id=<%= records_model %>>
   <thead>
     <% if defined?(scoped) %>
-      <% scope = records_model %>
-      <% url = :home %>
+      <% opts = { model: records_model, scoped: true, url: :home } %>
     <% else %>
-      <% url = records_model %>
+      <% opts = { model: records_model } %>
     <% end %>
-    <% opts = { model: records_model, scope: scope, url: url } %>
-    <th><%= render 'layouts/sortable', opts.merge(column: :id) %></th>
-    <th><%= render 'layouts/sortable', opts.merge(column: :first_name) %></th>
-    <th><%= render 'layouts/sortable', opts.merge(column: :last_name) %></th>
-    <th><%= render 'layouts/sortable', opts.merge(column: :birth_year) %></th>
+    <th>
+      <%= render 'layouts/sortable_theader', opts.merge(column: :id) %>
+    </th>
+    <th>
+      <%= render 'layouts/sortable_theader', opts.merge(column: :first_name) %>
+    </th>
+    <th>
+      <%= render 'layouts/sortable_theader', opts.merge(column: :last_name) %>
+    </th>
+    <th>
+      <%= render 'layouts/sortable_theader', opts.merge(column: :birth_year) %>
+    </th>
   </thead>
   <tbody>
     <% records.each do |record| %>
