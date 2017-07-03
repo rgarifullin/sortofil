@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version     = Sortofil::VERSION
   s.authors     = ['Rinat Garifullin']
   s.email       = ['ringarifullin@gmail.com']
-  s.homepage    = ''
+  s.homepage    = 'https://github.com/rgarifullin/sortofil'
   s.summary     = 'Sorting and filtering tool'
   s.description = 'Set of sort and filter helpers'
   s.license     = 'MIT'
@@ -15,8 +15,8 @@ Gem::Specification.new do |s|
   s.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile',
                 'README.md']
 
-  s.add_dependency 'rails', '~> 5.1.1'
-  s.add_dependency 'font-awesome-rails'
+  s.add_dependency 'rails', '~> 5.1'
+  s.add_dependency 'font-awesome-rails', '~> 4.7'
 
   s.add_development_dependency 'poltergeist'
   s.add_development_dependency 'puma'
