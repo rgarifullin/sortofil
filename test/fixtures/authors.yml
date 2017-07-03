@@ -1,0 +1,16 @@
+chekhov:
+  first_name: "Anton"
+  last_name: "Chekhov"
+  birth_year: 1860
+dostoyevsky:
+  first_name: "Fyodor"
+  last_name: "Dostoyevsky"
+  birth_year: 1821
+lermontov:
+  first_name: "Mikhail"
+  last_name: "Lermontov"
+  birth_year: 1814
+solzhenitsyn:
+  first_name: "Aleksandr"
+  last_name: "Solzhenitsyn"
+  birth_year: 1918

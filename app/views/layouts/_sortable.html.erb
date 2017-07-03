@@ -1,0 +1,57 @@
+<% scope = model.to_sym if defined?(scoped) %>
+
+<% if params.dig(scope, :direction).present? %>
+  <% if params.dig(scope, :direction) == 'asc' %>
+    <% direction = 'asc' %>
+    <% next_direction = 'desc' %>
+  <% else %>
+    <% direction = 'desc' %>
+    <% next_direction = 'asc' %>
+  <% end %>
+<% elsif params[:direction] %>
+  <% direction = params[:direction] %>
+  <% next_direction = direction == 'asc' ? 'desc' : 'asc' %>
+<% else %>
+  <% direction = @default_sort_direction[scope] %>
+  <% next_direction = @default_sort_direction[scope] == :asc ? :desc : :asc %>
+<% end %>
+
+<% if scope %>
+  <% if @permitted_params[scope] %>
+    <% sort_params = { "#{scope}".to_sym => @permitted_params[scope]
+                         .merge(direction: next_direction, sort_by: column) } %>
+  <% else %>
+    <% sort_params = { "#{scope}".to_sym => { direction: next_direction,
+                                              sort_by: column } } %>
+  <% end %>
+<% else %>
+  <% sort_params = @permitted_params.merge(direction: next_direction,
+                                           sort_by: column) %>
+<% end %>
+
+<% url = defined?(url) ? url : model %>
+<% i18_scope = defined?(i18_scope) ? i18_scope : model %>
+
+<% header = t("#{i18_scope}.#{scope || model}.#{column}", default: '') %>
+<% if header.empty? %>
+  <% header = Object.const_get(model.singularize.capitalize)
+                    .human_attribute_name(column) %>
+<% end %>
+
+<%= link_to url_for([url, params: sort_params.to_h]) do %>
+  <%= header %>
+  <% if params.dig(scope, :sort_by).present? %>
+    <% if params.dig(scope, :sort_by) == column.to_s %>
+      &nbsp;
+      <i class="fa fa-sort-<%= direction %>"></i>
+    <% end %>
+  <% elsif params[:sort_by].present? %>
+    <% if params[:sort_by] == column.to_s %>
+      &nbsp;
+      <i class="fa fa-sort-<%= direction %>"></i>
+    <% end %>
+  <% elsif @default_sort_field[scope] == column %>
+    &nbsp;
+    <i class="fa fa-sort-<%= direction %>"></i>
+  <% end %>
+<% end %>

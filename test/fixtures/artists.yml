@@ -1,0 +1,16 @@
+aivazovsky:
+  first_name: "Ivan"
+  last_name: "Aivazovsky"
+  birth_year: 1817
+repin:
+  first_name: "Ilya"
+  last_name: "Repin"
+  birth_year: 1844
+rublev:
+  first_name: "Andrei"
+  last_name: "Rublev"
+  birth_year: 1360
+vrubel:
+  first_name: "Mikhail"
+  last_name: "Vrubel"
+  birth_year: 1856
