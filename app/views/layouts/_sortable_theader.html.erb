@@ -32,7 +32,7 @@
 <% i18_scope ||= model %>
 <% header = t("#{i18_scope}.#{scope || model}.#{column}", default: '') %>
 <% if header.empty? %>
-  <% header = Object.const_get(model.singularize.capitalize)
+  <% header = Object.const_get(model.singularize.camelize)
                     .human_attribute_name(column) %>
 <% end %>
 
