@@ -1,4 +1,8 @@
 # Sortofil
+
+[![Build Status](https://travis-ci.org/rgarifullin/sortofil.svg?branch=master)](https://travis-ci.org/rgarifullin/sortofil)
+[![Code Climate](https://codeclimate.com/github/rgarifullin/sortofil/badges/gpa.svg)](https://codeclimate.com/github/rgarifullin/sortofil)
+
 Sortofil - sort and filter helper for Rails app
 
 Features:
