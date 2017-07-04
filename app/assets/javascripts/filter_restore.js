@@ -1,5 +1,10 @@
 const filterRestore = function filterRestoreUrl() {
-  var str = document.getElementById('url_params').value;
+  var field = document.getElementById('url_params');
+  if (!field) {
+    return;
+  }
+
+  var str = field.value;
   if (str) {
     var updated_url = location.pathname + '?' + encodeURI(str);
     var page = location.search.match(/page=\d+/);
